@@ -982,9 +982,9 @@ textarea{resize:vertical;min-height:80px;}
   </div>
 </div>
 <script>
-const SUPA_URL='https://zpiddamqmmllwtswvyza.supabase.co';
-const SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwaWRkYW1xbW1sbHd0c3d2eXphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxODI5MTgsImV4cCI6MjA5NDc1ODkxOH0.0iBGhbDSxcxiuuNFLRK9gFgO-oGsL0sXq3xVq_eOoHk';
-const SUPA_SERVICE='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwaWRkYW1xbW1sbHd0c3d2eXphIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3OTE4MjkxOCwiZXhwIjoyMDk0NzU4OTE4fQ.io1cANBXa421CKoi0SIvH25FjxjHX7733zqkYjXWeAg';
+const SUPA_URL='https://uphutnsakizeuhsckdaw.supabase.co';
+const SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVwaHV0bnNha2l6ZXVoc2NrZGF3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxMjEyMjEsImV4cCI6MjA5NzY5NzIyMX0.55ef4hVikamvGZRR-AXwQdKFMEt8RhVbPjnQn3sl22c';
+const SUPA_SERVICE='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVwaHV0bnNha2l6ZXVoc2NrZGF3Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MjEyMTIyMSwiZXhwIjoyMDk3Njk3MjIxfQ.MUO6P5439i5kSVWNYcN33iD7ZCa6UFL10QnX4MwhHe8';
 const sb=supabase.createClient(SUPA_URL,SUPA_KEY);
 const sbAdmin=supabase.createClient(SUPA_URL,SUPA_SERVICE);
 let CU=null,ROLE=null,D=mkDef();
@@ -1370,7 +1370,7 @@ async function inviteUser(){
   try{
     const{data:{session}}=await sb.auth.getSession();
     const token=session?.access_token||SUPA_KEY;
-    const res=await fetch('https://zpiddamqmmllwtswvyza.supabase.co/functions/v1/create-user',{
+    const res=await fetch('https://uphutnsakizeuhsckdaw.supabase.co/functions/v1/create-user',{
       method:'POST',
       headers:{'Content-Type':'application/json','Authorization':'Bearer '+token,'apikey':SUPA_KEY},
       body:JSON.stringify({email,password:senha,nome,role})
@@ -1501,7 +1501,7 @@ async function mudarRole(uid,newRole){
 }
 async function deleteUser(uid,nome){
   if(!confirm(`Remover acesso de "${nome}"?`))return;
-  await fetch(`https://zpiddamqmmllwtswvyza.supabase.co/auth/v1/admin/users/${uid}`,{method:'DELETE',headers:{'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwaWRkYW1xbW1sbHd0c3d2eXphIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3OTE4MjkxOCwiZXhwIjoyMDk0NzU4OTE4fQ.io1cANBXa421CKoi0SIvH25FjxjHX7733zqkYjXWeAg','apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwaWRkYW1xbW1sbHd0c3d2eXphIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3OTE4MjkxOCwiZXhwIjoyMDk0NzU4OTE4fQ.io1cANBXa421CKoi0SIvH25FjxjHX7733zqkYjXWeAg'}});
+  await fetch(`https://uphutnsakizeuhsckdaw.supabase.co/auth/v1/admin/users/${uid}`,{method:'DELETE',headers:{'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVwaHV0bnNha2l6ZXVoc2NrZGF3Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MjEyMTIyMSwiZXhwIjoyMDk3Njk3MjIxfQ.MUO6P5439i5kSVWNYcN33iD7ZCa6UFL10QnX4MwhHe8','apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVwaHV0bnNha2l6ZXVoc2NrZGF3Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MjEyMTIyMSwiZXhwIjoyMDk3Njk3MjIxfQ.MUO6P5439i5kSVWNYcN33iD7ZCa6UFL10QnX4MwhHe8'}});
   await sbAdmin.from('profiles').delete().eq('id',uid);
   showToast(`${nome} removido.`);loadUsers();}
 function renderPreview(){collect();const d=D,fv=(v,fb='—')=>v||fb,n=v=>v?parseInt(v).toLocaleString('pt-BR'):'—',mn=v=>v?`R$ ${parseFloat(v).toLocaleString('pt-BR',{minimumFractionDigits:2})}`:'—';document.getElementById('preview-content').innerHTML=`<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px"><div class="pvs"><div><div class="pvl">Leads/mês</div><div class="pvv" style="color:var(--a1)">${n(d.kpis.leads)}</div></div></div><div class="pvs"><div><div class="pvl">Seguidores</div><div class="pvv" style="color:var(--a3)">${n(d.kpis.seguidores)}</div></div></div><div class="pvs"><div><div class="pvl">CPL</div><div class="pvv" style="color:var(--a4)">${mn(d.kpis.cpl)}</div></div></div><div class="pvs"><div><div class="pvl">Budget/mês</div><div class="pvv" style="color:var(--a2)">${mn(d.kpis.budget)}</div></div></div></div><div class="block"><div class="bt" style="margin-bottom:8px">MKL — ${fv(d.mkl)}</div><div class="bt">SKL — ${fv(d.skl)}</div></div><div class="block" style="margin-top:12px"><div class="bt" style="margin-bottom:12px">Canais (${d.canais.length})</div>${d.canais.map(c=>`<div style="display:flex;gap:12px;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px"><span style="flex:1;font-weight:500">${c.nome}</span><span style="color:var(--muted)">${c.tipo}</span></div>`).join('')}</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:12px">${['curto','medio','longo'].map((p,i)=>`<div class="block"><div class="bt" style="margin-bottom:10px">${['⏱ Curto','Médio','Longo'][i]} prazo</div>${(d.prazos[p]||[]).map(o=>`<div style="font-size:12px;color:var(--muted);padding:3px 0">→ ${o}</div>`).join('')}</div>`).join('')}</div>`;}
